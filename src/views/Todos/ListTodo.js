@@ -6,67 +6,63 @@ import { toast } from 'react-toastify';
 
 class ListToDo extends React.Component{
 
-    // state = {
-    //     listTodos: [
-    //         {id: 'todo1', title: 'Doing Homework' },
-    //         {id: 'todo2', title: 'Data Request' },
-    //         {id: 'todo3', title: 'Clean my house' },
-    //     ]
-    // }
+    state = {
+        listTodos: [
+            {id: 'todo1', title: 'Doing Homework' },
+            {id: 'todo2', title: 'Data Request' },
+            {id: 'todo3', title: 'Clean my house' },
+        ]
+    }
 
-    // addNewToDo = (task) => {
-    //     this.setState(
-    //         {
-    //             listTodos: [...this.state.listTodos, task]
-    //         }
-    //     )
-    //     toast.success('Đã thêm: ' + task.title);
-    // }
+    addNewToDo = (task) => {
+        this.setState(
+            {
+                listTodos: [...this.state.listTodos, task]
+            }
+        )
+        toast.success('Đã thêm: ' + task.title);
+    }
 
-    // handleEdit = () => {
+    handleEdit = () => {
 
-    // }
+    }
 
-    // handleDelete = (task) => {
+    handleDelete = (task) => {
 
-    //     let currentList = this.state.listTodos;
-    //     currentList = currentList.filter((item, index) => item.id !== task.id)
+        let currentList = this.state.listTodos;
+        currentList = currentList.filter((item, index) => item.id !== task.id)
 
-    //     this.setState(
-    //        {
-    //         listTodos: currentList
-    //        }
-    //     )
-    // }
+        this.setState(
+           {
+            listTodos: currentList
+           }
+        )
+    }
 
-    // render() {
-    //     let {listTodos} = this.state;
+    render() {
+        let {listTodos} = this.state;
 
-    //     return(
-    //         <div className='list-todo-container'>
-    //             <div>Type Here Your Task: </div>
-    //             <AddToDo
-    //             addNewToDo={this.addNewToDo}/>
+        return(
+            <div className='list-todo-container'>
+                <div>Type Here Your Task: </div>
+                <AddToDo
+                addNewToDo={this.addNewToDo}/>
 
-    //             <div className='list-todo-content'>
-    //                 {listTodos && listTodos.length > 0 &&
-    //                     listTodos.map((item, index) => {
-    //                         return(
-    //                             <div className='todo-child' key={item.id}>
-    //                                 <span> {index + 1} - {item.title} </span>
-    //                                 <div className='btn'>
-    //                                     <button className='Edit' onClick={this.handleEdit}>Edit</button>
-    //                                     <button className='Delete' onClick={() => this.handleDelete(item)}>Delete</button>
-    //                                 </div>
-                                    
-    //                             </div>
-    //                         )
-    //                     })}
-                    
-    //             </div>
-    //         </div>
-    //     )
-    // }   
+                <div className='list-todo-content'>
+                    {listTodos && listTodos.length > 0 &&
+                        listTodos.map((item, index) => {
+                            return(
+                                <div className='todo-child'>
+                                    <span> {index + 1} - {item.title} </span>
+                                    <button className='btn'>Edit</button>
+                                    <button className='btn' onClick={() => this.handleDelete(item)}>Delete</button>
+                                </div>
+                            )
+                        })}
+                </div>
+            </div>
+        )
+    }   
 }   
 
 export default ListToDo;
