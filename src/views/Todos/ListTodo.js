@@ -21,19 +21,17 @@ class ListToDo extends React.Component{
     render() {
         let {listToDos} = this.state.listToDos;
         return(
-            <div className='list-todo-container'>
-            <div>Type your Task here</div>
-            <AddToDo addNewToDo={this.addNewToDo}/>
-
+            <div>
+                <div className='todo-list-container'>Type your task here</div>
+                <AddToDo addNewToDo={this.addNewToDo}/>
                 <div className='list-todo-content'>
-                    {listToDos && listToDos.length > 0 && 
-                        listToDos.map((item, index) => {
+                    {listToDos && listToDos.length > 0 &&
+                        listToDos.map((item, index) => {    
                             return(
-                               <div className='todo-child'>
-                                    <span> {index + 1} - {item.title} </span>
-                               </div>
+                                <div>abc</div>
                             )
-                        })}
+                        })
+                    }
                 </div>
             </div>
         )
