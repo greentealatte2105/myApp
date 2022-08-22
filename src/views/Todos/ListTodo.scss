@@ -1,5 +1,5 @@
 .list-todo-container{
-    button{
+    .button{
         cursor: pointer;
     }
     // .add-todo{}
@@ -17,7 +17,7 @@
             margin: 10px;
             .btn{
                 margin: -30px;
-                text-align: right;
+                text-align: left;
             }
         }
     }
